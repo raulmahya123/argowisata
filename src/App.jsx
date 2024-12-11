@@ -10,7 +10,9 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import LupaPassword from './pages/LupaPassword';
 import BookingForm from './pages/BookingForm';
-
+import Dashboard from './pages/dashboard';
+import Kuotaadmin from './pages/Kuotaadmin';
+import ApprovalAdmin from './pages/approvaladmin';
 function App() {
   return (
     <BrowserRouter>
@@ -26,6 +28,10 @@ function App() {
           <Route path="/destinasi-wisata" element={<DestinasiWisata />} />
           <Route path="/panduan-booking" element={<PanduanBooking />} />
           <Route path="/penginapan" element={<Penginapan />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/kuotaadmin" element={<Kuotaadmin />} />
+          <Route path="/approvaladmin" element={<ApprovalAdmin />} />
+
 
           <Route path="/booking" element={<BookingForm />} />
         </Routes>

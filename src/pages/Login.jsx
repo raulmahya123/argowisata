@@ -1,4 +1,3 @@
-// src/pages/Login.jsx
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
@@ -25,11 +24,17 @@ const Login = () => {
                 password,
             });
 
-            // Simpan token ke localStorage
-            localStorage.setItem('token', response.data.token);
+            // Simpan token dan user ke localStorage
+            const { token, user } = response.data;
+            localStorage.setItem('token', token);
+            localStorage.setItem('user', JSON.stringify(user));
 
-            // Redirect ke halaman dashboard atau halaman lain
-            navigate('/dashboard');
+            // Redirect berdasarkan role user
+            if (user.role === 'admin') {
+                navigate('/dashboard');
+            } else {
+                navigate('/');
+            }
         } catch (error) {
             // Tangani error
             setErrorMessage(
